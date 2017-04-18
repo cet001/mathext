@@ -1,4 +1,4 @@
-package mathext
+package ints
 
 // Returns the lesser of a and b.
 func Min(a, b int) int {

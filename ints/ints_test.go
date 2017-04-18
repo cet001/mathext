@@ -1,4 +1,4 @@
-package mathext
+package ints
 
 import (
 	"github.com/stretchr/testify/assert"
