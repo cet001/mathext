@@ -4,4 +4,6 @@ go:
     - 1.8.x
 
 notifications:
-    email: true
+    email:
+        on_success: always
+        on_failure: always
