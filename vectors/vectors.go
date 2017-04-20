@@ -1,5 +1,5 @@
-// Package math provides lower-level math operations need by other algorithm
-// implementations within this project.
+// Package vectors provides basic operations on vectors, as well as a sparse
+// vector implementation.
 package vectors
 
 import (

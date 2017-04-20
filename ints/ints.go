@@ -1,3 +1,5 @@
+// Package ints provides int-specific functions that are not available in Golang's
+// standard `math` package.
 package ints
 
 // Returns the lesser of a and b.
