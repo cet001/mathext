@@ -8,20 +8,20 @@ import (
 )
 
 // Represents a sparse vector, where most of the elements are typically empty.
-// For example, consider the following vector containing 10 elements:
+// For example, consider the following logical vector containing 10 elements:
 //
 //   v = [9 0 0 2 0 0 0 0 7 0]
 //
-// Only elements 0, 3, and 8 (base-0) contain non-zero values -- the remaining
-// elements are "empty".  The following sparse vector is equivalent to the above
-// vector:
+// Only elements in ordinal positions 0, 3, and 8 contain non-zero values -- the
+// remaining elements are "empty".  The following sparse vector is equivalent to
+// the above vector:
 //
 //   sv := SparseVector{{0, 9}, {3, 2}, {8, 7}}
 //
-// Each element in the SparseVector is a Element object that specifies the element's
-// value (Element.Value) and position (Element.Id) within the vector.  Note that
-// the SparseVector declaration above is a shorthand syntax; it can also be declared
-// more formally like this:
+// Each element in the SparseVector is a Element object that specifies the
+// element's value (Element.Value) and position (Element.Id) within the vector.
+// Note that the SparseVector declaration above is a shorthand syntax; it can
+// also be declared more formally like this:
 //
 //   sv := SparseVector{
 //	   Element{Id: 0, Value: 9},
@@ -38,22 +38,8 @@ type Element struct {
 	Value float64
 }
 
-// Sorts Elements by increasing Element.Id.
-type ByElementId []Element
-
-func (a ByElementId) Len() int           { return len(a) }
-func (a ByElementId) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a ByElementId) Less(i, j int) bool { return a[i].Id < a[j].Id }
-
-// Sorts Element objects by decreasing Element.Value.
-type ByElementValueDesc []Element
-
-func (a ByElementValueDesc) Len() int           { return len(a) }
-func (a ByElementValueDesc) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a ByElementValueDesc) Less(i, j int) bool { return a[i].Value > a[j].Value }
-
-// Calculates the dot product of two sparse vectors.  Dot() assumes that v1 and
-// v2 are in sorted order by Element.Id.
+// Calculates the dot product of two SparseVector objects.  Dot() assumes that
+// v1 and v2 are in sorted order by Element.Id.
 func Dot(v1, v2 SparseVector) float64 {
 	var dotProduct float64 = 0.0
 	lenV1, lenV2 := len(v1), len(v2)
@@ -222,3 +208,17 @@ func Union(a, b, target []int) []int {
 
 	return union
 }
+
+// Sorts Elements by increasing Element.Id.
+type ByElementId []Element
+
+func (a ByElementId) Len() int           { return len(a) }
+func (a ByElementId) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a ByElementId) Less(i, j int) bool { return a[i].Id < a[j].Id }
+
+// Sorts Elements by decreasing Element.Value.
+type ByElementValueDesc []Element
+
+func (a ByElementValueDesc) Len() int           { return len(a) }
+func (a ByElementValueDesc) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a ByElementValueDesc) Less(i, j int) bool { return a[i].Value > a[j].Value }
