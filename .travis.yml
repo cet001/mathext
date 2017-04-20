@@ -5,5 +5,7 @@ go:
 
 notifications:
     email:
+        recipients:
+            - chadtakahashi@gmail.com
         on_success: always
         on_failure: always
