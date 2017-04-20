@@ -8,14 +8,12 @@ import (
 
 func ExampleHash() {
 	fmt.Println(Hash("john"))
+	fmt.Println(Hash("John"))
 	fmt.Println(Hash("12345678"))
-	fmt.Println(Hash("XXX_YYY_ZZZ"))
-	fmt.Println(Hash("xxx_yyy_zzz"))
 	// Output:
 	// 6774539739450401392
+	// 6774539739449448080
 	// -4898812128727250071
-	// -8286756815414078424
-	// -8259655320462518136
 }
 
 // This is just a sanity-check.
