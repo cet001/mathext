@@ -1,21 +1,21 @@
 all : install
 
 clean :
-	@echo ">>> Cleaning and initializing intmath project <<<"
+	@echo ">>> Cleaning and initializing mathext project <<<"
 	@go clean
 	@gofmt -w .
 	@go get github.com/stretchr/testify
 
 test : clean
 	@echo ">>> Running unit tests <<<"
-	@go test ./ ./ints
+	@go test ./ ./ints ./vectors
 
 test-coverage : clean
 	@echo ">>> Running unit tests and calculating code coverage <<<"
-	@go test ./ ./ints -cover
+	@go test ./ ./ints ./vectors -cover
 
 install : test
-	@echo ">>> Building and installing intmath <<<"
+	@echo ">>> Building and installing mathext <<<"
 	@go install
-	@echo ">>> intmath installed successfully! <<<"
+	@echo ">>> mathext installed successfully! <<<"
 	@echo ""
