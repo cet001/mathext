@@ -1,5 +1,12 @@
 package mathext
 
+import (
+	"math"
+)
+
+// Convenience coefficient for converting degrees to radians.
+const Deg2rad float64 = math.Pi / 180
+
 // Hashes a string into an int.
 func Hash(s string) int {
 	// NOTE: This implementation based on Java's String.hashCode()
