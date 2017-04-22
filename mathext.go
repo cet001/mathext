@@ -1,3 +1,5 @@
+// Package mathext ane its sub-packages contain a hodgepodge of math-related
+// functions that don't exist in the Golang standard `math` library.
 package mathext
 
 import (
