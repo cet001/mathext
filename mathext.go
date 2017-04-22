@@ -1,4 +1,13 @@
+// Package mathext ane its sub-packages contain a hodgepodge of math-related
+// functions that don't exist in the Golang standard `math` library.
 package mathext
+
+import (
+	"math"
+)
+
+// Convenience coefficient for converting degrees to radians.
+const Deg2rad float64 = math.Pi / 180
 
 // Hashes a string into an int.
 func Hash(s string) int {
