@@ -31,3 +31,9 @@ func TestHash(t *testing.T) {
 
 	assert.Equal(t, len(values), len(uniqueHashValues))
 }
+
+func BenchmarkHash(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		Hash("abcdefgABCDEFG012345") // 20 character rstring
+	}
+}
